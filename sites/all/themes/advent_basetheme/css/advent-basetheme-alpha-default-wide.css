@@ -1,0 +1,132 @@
+/* This file will hold styles that are loaded using the same media query as the wide grid. */
+
+#region-branding-second {
+    float: left;
+    margin: 0 0 0 20px;
+    top: -90px;
+}
+.block-main-menu {
+    /*height: 355px;*/
+}
+
+#region-branding-second {
+	/*height: 140px;
+   	line-height: 140px;
+   	text-align: left;*/
+}
+
+.front #region-content {
+    width: 900px;
+}
+
+.front #zone-content-wrapper {
+    margin-bottom: 20px;
+    max-height: 320px;
+    overflow: hidden;
+}
+
+#block-block-5 {
+    position: absolute;
+    top: 93px;
+}
+
+#region-preface-second {
+	margin-top:0px;
+	width: 900px;
+}
+
+h3.fp {
+    float: left;
+    font-size: 20px;
+    margin: 20px 0 0 10px;
+}
+
+.fp-img {
+    clear: both;
+    display: block;
+    float: left;
+    margin: 0 20px 20px 10px;
+}
+
+.fp-link {
+    float: left;
+	font-size:14px;
+	margin: 10px 10px 0 0;
+}
+
+/*///////////////////////////////////////////*/
+			/* FRONT PAGE NEWS ITEMS */
+/*///////////////////////////////////////////*/
+
+#block-views-front-page-news-items-block {
+	margin:20px;
+}
+
+#block-views-front-page-news-items-block .views-row {
+	margin: 0 0 20px;
+}
+
+#block-views-front-page-news-items-block .views-field.views-field-field-image {
+    float: left;
+    margin: 5px 10px 0px 0;
+	width:100px;
+}
+
+#block-views-front-page-news-items-block .views-field.views-field-body {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#block-views-front-page-news-items-block .views-field.views-field-title a {
+    font-size: 24px;
+    padding-bottom: 5px;
+	color:#e51837;
+	font-weight:bold;
+	letter-spacing:1px;
+}
+
+/*///////////////////////////////////////////*/
+			/* ASK A QUESTION */
+/*///////////////////////////////////////////*/
+
+#question-node-form {
+    height: 420px;
+}
+
+#edit-field-question textarea {
+	/*resize:none;
+	height:200px;*/
+}
+
+td.col-1.col-first.grid-4,
+td.col-2.col-last.grid-4 {
+	width:47.5%;
+}
+
+.views-row-odd {
+    margin-right: 2%;
+}
+.views-row {
+    float: left;
+    width: 47%;
+}
+
+.page-chair #region-content {
+    margin-top: 10px;
+}
+
+/* HCP POP UP */
+
+#sliding-popup.sliding-popup-top {
+    margin-top: 145px;
+    position: absolute;
+	background: url("http://www.aps-dev1.com/dev/adVENT_Basetheme/sites/default/files/images/jigsaw.png") no-repeat scroll right -145px #e51837;
+}
+
+#sliding-popup .popup-content #popup-text p {
+    font-size: 17px;
+}
+
+.page-node-2 .views-row {
+    min-height: 215px;
+}

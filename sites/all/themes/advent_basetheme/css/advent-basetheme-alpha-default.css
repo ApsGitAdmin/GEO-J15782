@@ -1,0 +1,205 @@
+/* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+
+td {
+  	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: medium none;
+    border-right: medium none;
+    color: #e51837;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    text-align: left;
+	margin-left:-10px;
+	padding-right:0;
+}
+
+#region-branding {
+	padding-left:0;
+	margin-left:0;
+}
+
+#region-sidebar-first {
+	display:block;
+	margin-left: -1200px;
+    padding-left: 1200px;
+	height:340px;
+	background:#d9d9d9;
+	/*background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);*/
+	/*background: #afc0cc; 
+	background: -moz-linear-gradient(top,  #afc0cc 0%, #dee4e8 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#afc0cc), color-stop(100%,#dee4e8)); /
+	background: -webkit-linear-gradient(top,  #afc0cc 0%,#dee4e8 100%); 
+	background: -o-linear-gradient(top,  #afc0cc 0%,#dee4e8 100%); 
+	background: -ms-linear-gradient(top,  #afc0cc 0%,#dee4e8 100%); 
+	background: linear-gradient(to bottom,  #afc0cc 0%,#dee4e8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afc0cc', endColorstr='#dee4e8',GradientType=0 ); */
+}
+
+#region-sidebar-second .block:first-child img {
+    display:block;
+	margin-bottom: 20px;
+}
+
+#region-sidebar-second .block img {
+    display:block;
+}
+
+
+#region-branding-second {
+	/*height: 110px;
+   	line-height: 140px;
+   	text-align: left;*/
+}
+
+#region-branding-second p {
+    /*display: inline-block;
+	font-size:30px;*/
+}
+
+#region-branding-second {
+    float: left;
+    margin: 0 0 0 20px;
+    top: -50px;
+	padding:0;
+}
+.front #region-content {
+	padding:0;
+}
+
+#region-content  {
+	margin-right: 0;
+    padding:0 10px;
+}
+
+#block-search-form {
+    margin-right: 10px;
+}
+
+#region-preface-second {
+	margin-left:0px;
+	margin-right:0px;
+}
+
+#region-preface-second {
+	margin-top:0px;
+	width: 540px;
+}
+
+#zone-branding {
+   	border-bottom: 2px solid #e51837;
+	padding-bottom: 10px;
+	margin-bottom:20px;
+}
+
+#node-webform-10 .form-item {
+	float:left;
+	width:49%;
+}
+
+.front #webform-component-your-full-name {
+	margin-right:2%;
+}
+
+.views-field.views-field-field-photo img {
+    float: right;
+    margin: 0 0 5px 5px;
+    width: 100px;
+}
+
+h3.fp {
+    float: left;
+    margin: 20px 0 10px 20px;
+	font-size:24px;
+}
+
+.fp-img {
+    clear: both;
+    display: block;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.fp-link {
+    float: left;
+	font-size:14px;
+	margin: 0 20px 20px;
+}
+
+article .field-type-image {
+	float:right;
+	margin: 0 0 10px 10px;
+	width:auto;
+}
+
+#block-webform-client-block-10 h2 {
+	color:#fff;
+	margin-top:-15px;
+	margin-bottom: 0;
+}
+
+h2.page-title {
+	color: #e51837;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 10px 10px;
+}
+
+td.col-1.col-first.grid-4,
+td.col-2.col-last.grid-4 {
+	width:46%;
+}
+
+/* EU QUESTION SPECIFIC STYLES */
+
+.page-node-add-question-eu #region-content {
+	margin-left: 0px;
+}
+
+/* CHAIR SPECIFIC STYLES */
+
+
+.role-moderator #region-content {
+	margin:0;
+}
+
+.role-chair #region-content {
+    padding: 0;
+	margin: 10px 0 0;
+	width:100%;
+}
+
+article#node-webform-10 {
+	margin:0 20px 0 0;
+}
+
+.views-row-odd {
+    margin-right: 2%;
+}
+.views-row {
+    float: left;
+    width: 46%;
+	margin:10px;
+}
+
+.watch-live a {
+	-webkit-appearance: none;
+  	-moz-border-radius: 11px;
+  	-webkit-border-radius: 11px;
+  	-moz-background-clip: padding;
+  	-webkit-background-clip: padding;
+  	background: none repeat scroll 0 0 #e51837;
+    border: medium none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    outline: 0 none;
+    overflow: visible;
+    padding: 25px;
+    text-shadow: none;
+    width: auto;
+  	*padding-top: 2px; /* IE7 */
+  	*padding-bottom: 0px; /* IE7 */
+	  margin: 0 0 10px 10px;
+    font-size:18px;
+}
+

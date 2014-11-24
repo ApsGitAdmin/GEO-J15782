@@ -1,0 +1,153 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+ 
+.logo-img {
+    padding-top: 10px;
+} 
+
+#region-branding-second p {
+	font-size:22px;
+} 
+
+#block-system-main-menu ul.menu li {
+    font-size: 14px;
+}
+
+#region-branding-second {
+	/*height: 110px;
+   	line-height: 140px;
+   	text-align: left;*/
+}
+
+.front #region-content {
+    width: 720px;
+}
+
+.front #zone-content-wrapper {
+    margin-bottom: 20px;
+    max-height: 320px;
+    overflow: hidden;
+}
+
+#block-block-5 {
+    position: absolute;
+    top: 73px;
+}
+
+#region-preface-second {
+	margin-top:0px;
+	width: 720px;
+}
+
+td {
+    margin-bottom: 20px;
+    padding-left: 0px;
+    text-align: left;
+	margin-left:-10px;
+}
+
+h3.fp {
+    float: left;
+    font-size: 18px;
+    margin: 10px 0 10px 0px;
+}
+
+.fp-img {
+    clear: both;
+    display: block;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.fp-link {
+    float: left;
+	font-size:14px;
+	margin: 0 10px 0 0;
+}
+
+article p {
+  font-size:14px; 
+}
+
+/*///////////////////////////////////////////*/
+			/* FRONT PAGE NEWS ITEMS */
+/*///////////////////////////////////////////*/
+
+#block-views-front-page-news-items-block {
+	margin:20px;
+}
+
+#block-views-front-page-news-items-block .views-row {
+	margin: 0 0 20px;
+}
+
+#block-views-front-page-news-items-block .views-field.views-field-field-image {
+    float: left;
+    margin: 4px 10px 10px 0;
+	width:75px;
+}
+
+#block-views-front-page-news-items-block .views-field.views-field-body {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#block-views-front-page-news-items-block .views-field.views-field-title a {
+    font-size: 24px;
+    padding-bottom: 5px;
+	color:#e51837;
+	font-weight:bold;
+	letter-spacing:1px;
+}
+
+#question-node-form {
+    height: 420px;
+}
+
+#edit-field-question textarea {
+	/*resize:none;
+	height:200px;
+*/}
+
+td.col-1.col-first.grid-4,
+td.col-2.col-last.grid-4 {
+	width:47%;
+}
+
+#region-branding-second {
+    float: left;
+    margin: 0 0 0 20px;
+    top: -70px;
+}
+
+.views-row-odd {
+    margin-right: 3%;
+}
+.views-row {
+    float: left;
+    width: 46%;
+}
+
+.page-node-2  .views-row {
+    min-height:127px;
+}
+
+#block-system-main-menu ul.menu li.leaf a {
+    color: #e51837;
+    display: block;
+    padding: 10px 0 10px 10px;
+}
+
+/* HCP POP UP */
+
+#sliding-popup.sliding-popup-top {
+    margin-top: 120px;
+    position: absolute;
+	background: url("http://www.aps-dev1.com/dev/adVENT_Basetheme/sites/default/files/images/jigsaw.png") no-repeat scroll right -120px #e51837;
+}
+
+#sliding-popup .popup-content #popup-text p {
+    font-size: 17px;
+}
+
