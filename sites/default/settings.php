@@ -215,10 +215,10 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'GEO-J15782',
-      'username' => 'aps_admin',
-      'password' => 'KXNT321',
-      'host' => 'localhost',
+      'database' => 'drupal',
+      'username' => 'admin',
+      'password' => 'uIdRQZQRih6fosJ7',
+      'host' => '127.0.0.1',
       'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
