@@ -1808,9 +1808,12 @@ span.username  {
   background: #e51837;
 }
 
+.page-user .form-item .description {
+    color: #d9d9d9;
+}
 
-
-
+.password-strength {
+    background: none repeat scroll 0 0 #d9d9d9;
 
 
 
