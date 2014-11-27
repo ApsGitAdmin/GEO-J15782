@@ -1,15 +1,6 @@
 /* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
 
 td {
-  	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-bottom: medium none;
-    border-right: medium none;
-    color: #e51837;
-    margin-bottom: 20px;
-    padding-left: 0px;
-    text-align: left;
-	margin-left:-10px;
-	padding-right:0;
 }
 
 #region-branding {
@@ -36,7 +27,6 @@ td {
 
 #region-sidebar-second .block:first-child img {
     display:block;
-	margin-bottom: 20px;
 }
 
 #region-sidebar-second .block img {
@@ -56,18 +46,30 @@ td {
 }
 
 #region-branding-second {
-    float: left;
-    margin: 0 0 0 20px;
-    top: -50px;
-	padding:0;
+
 }
 .front #region-content {
 	padding:0;
 }
 
 #region-content  {
-	margin-right: 0;
-    padding:0 10px;
+  margin-left: 10px;
+  padding: 0;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  width:900px;
+}
+
+#region-content p {
+  color:#d9d9d9;
+}
+
+.page-node-1 #region-content  {
+  margin-left: 10px;
+  padding: 0;
+  margin-right: 0px;
+  background: none;
+    margin-bottom:0;
 }
 
 #block-search-form {
@@ -85,9 +87,6 @@ td {
 }
 
 #zone-branding {
-   	border-bottom: 2px solid #e51837;
-	padding-bottom: 10px;
-	margin-bottom:20px;
 }
 
 #node-webform-10 .form-item {
@@ -137,16 +136,16 @@ article .field-type-image {
 }
 
 h2.page-title {
-	color: #e51837;
+	color: #d9d9d9;
     font-size: 28px;
     font-weight: bold;
     margin: 10px 10px 10px;
 }
 
-td.col-1.col-first.grid-4,
+/*td.col-1.col-first.grid-4,
 td.col-2.col-last.grid-4 {
 	width:46%;
-}
+}*/
 
 /* EU QUESTION SPECIFIC STYLES */
 
@@ -158,7 +157,7 @@ td.col-2.col-last.grid-4 {
 
 
 .role-moderator #region-content {
-	margin:0;
+	margin:0 0 20px 10px;
 }
 
 .role-chair #region-content {
@@ -176,8 +175,7 @@ article#node-webform-10 {
 }
 .views-row {
     float: left;
-    width: 46%;
-	margin:10px;
+
 }
 
 .watch-live a {
@@ -203,3 +201,39 @@ article#node-webform-10 {
     font-size:18px;
 }
 
+#block-block-5 {
+    float:right;
+    padding: 20px 0 0;
+    text-align: right;
+    margin-top: 10px;
+}
+
+#block-block-3 img {
+    float: right;
+    width: 100px;
+}
+
+#zone-branding-wrapper {
+    border-bottom: 40px solid #e51837;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+#block-user-login {
+  margin:0;
+}
+
+.block {
+    padding: 20px 20px 0;
+}
+
+#block-views-agenda-output-agenda-block {
+  padding:20px;
+}
+.page-node-add-question .block h2.page-title {
+  margin-bottom: 0;
+  margin-right: 0;
+}
+.block-main-menu {
+    padding-right: 0;
+}

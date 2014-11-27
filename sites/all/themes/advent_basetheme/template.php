@@ -20,4 +20,22 @@ function adVENT_Basetheme_preprocess_html(&$vars) {
     }
   }
 }
+
+function adVENT_Basetheme_form_comment_form_alter(&$form, &$form_state, $form_id) {
+
+	$form['comment_body'][LANGUAGE_NONE][0]['#title'] = t('Question');
+	/*dpm($form);*/
+
+	$form['actions']['submit']['#value'] = t('SUBMIT');
+  
+  $label = t('Name');
+  if (isset($form['author']['_author'])) {
+    $form['author']['_author']['#title'] = $label;
+  }
+  else {
+    $form['author']['name']['#title'] = $label;
+  }
+}
+
+
 ?>

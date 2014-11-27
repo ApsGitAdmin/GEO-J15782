@@ -25,6 +25,19 @@
     width: 540px;
 }
 
+.page-node-1 #region-content {
+    width: 240px;
+}
+
+#region-postscript-second {
+    width:540px;
+    margin:0;
+}
+
+#region-content  {
+  width:540px;
+}
+
 .front #zone-content-wrapper {
     margin-bottom: 20px;
     max-height: 340px;
@@ -32,8 +45,6 @@
 }
 
 #block-block-5 {
-    position: absolute;
-    top: 53px;
 }
 
 h3.fp {
@@ -93,9 +104,6 @@ td.col-2.col-last.grid-4 {
 }
 
 #region-branding-second {
-    float: left;
-    margin: 0 0 0 20px;
-    top: -50px;
 }
 
 .views-row-odd {
@@ -103,7 +111,6 @@ td.col-2.col-last.grid-4 {
 }
 .views-row {
     float: left;
-    width: 46%;
 }
 
 .page-node-2  .views-row {
@@ -114,33 +121,35 @@ td.col-2.col-last.grid-4 {
 #block-system-main-menu ul.menu li.leaf a {
     color: #e51837;
     display: block;
-    padding: 9px 0 9px 10px;
+    padding: 5px 10px 5px 10px;
+    text-align:right;
 }
 
 /* HCP POP UP */
 
 #sliding-popup.sliding-popup-top {
-    margin-top: 85px;
-    position: absolute;
-	background: url("http://www.aps-dev1.com/dev/adVENT_Basetheme/sites/default/files/images/jigsaw.png") no-repeat scroll right -85px #e51837;
 }
 
 #sliding-popup .popup-content {
-	margin-top:50px;
-    height: 120px;
-    max-width: 700px;
-    padding: 20px;
 }
 
 #sliding-popup .popup-content #popup-text p {
-    font-size: 17px;
 }
 
 #sliding-popup .popup-content #popup-buttons button {
-	width:280px;
 }
 
 #question-node-form {
-    height: 440px;
-    margin: 0 10px;
+}
+
+#region-sidebar-first {
+    height: 292px;
+}
+
+#block-block-15 p {
+    font-size: 14px;
+}
+
+#block-user-login {
+    height: 252px;
 }

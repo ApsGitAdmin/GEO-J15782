@@ -215,10 +215,10 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'drupal',
-      'username' => 'admin',
-      'password' => 'uIdRQZQRih6fosJ7',
-      'host' => '127.0.0.1',
+      'database' => 'sanofioncologylive',
+      'username' => 'apsadmin',
+      'password' => 'KXNT321',
+      'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
@@ -256,7 +256,7 @@ $update_free_access = FALSE;
  *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  *
  */
-$drupal_hash_salt = 'PJs3V8mRsUbbmXHs_1UGW8m038gI6iDic3CHodb8Lg8';
+$drupal_hash_salt = '9ecTsFCiGTibqPz5K0fkdvvhhQOfCfXv4pASqNNAlT4';
 
 /**
  * Base URL (optional).
