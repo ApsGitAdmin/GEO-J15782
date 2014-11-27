@@ -704,7 +704,7 @@ input[type="button"] {
 }
 
 
-
+.page-user #edit-submit,
 .page-search .form-submit,
 #question-node-form input[type="submit"] {
   color: #e51837;
@@ -1811,6 +1811,8 @@ span.username  {
 .page-user .form-item .description {
     color: #d9d9d9;
 }
+
+.page-user #edit-submit
 
 .password-strength {
     background: none repeat scroll 0 0 #d9d9d9;
