@@ -237,3 +237,8 @@ article#node-webform-10 {
 .block-main-menu {
     padding-right: 0;
 }
+
+.page-user .tabs.clearfix {
+    margin: 0 10px;
+}
+
