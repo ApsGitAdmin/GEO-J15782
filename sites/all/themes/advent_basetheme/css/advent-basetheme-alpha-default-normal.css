@@ -163,4 +163,12 @@ td.col-2.col-last.grid-4 {
 #block-user-login {
     height: 269px;
 }
+.pass-btn {
+  float:right;
+}
 
+#user-login-block-form-fields input#edit-submit.form-submit {
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}

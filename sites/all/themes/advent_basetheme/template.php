@@ -38,4 +38,23 @@ function adVENT_Basetheme_form_comment_form_alter(&$form, &$form_state, $form_id
 }
 
 
+function adVENT_Basetheme_theme(&$existing, $type, $theme, $path) {
+   $hooks['user_login_block'] = array(
+     'template' => 'templates/user-login-block',
+     'render element' => 'form',
+   );
+   return $hooks;
+ }
+function adVENT_Basetheme_preprocess_user_login_block(&$vars) {
+  $vars['name'] = render($vars['form']['name']);
+  $vars['pass'] = render($vars['form']['pass']);
+  $vars['submit'] = render($vars['form']['actions']['submit']);
+  
+  $vars['form']['links']['#markup'] = '';
+  $vars['rendered'] = drupal_render_children($vars['form']);
+}
+
+
+
+
 ?>
