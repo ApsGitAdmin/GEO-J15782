@@ -1580,7 +1580,7 @@ ul.primary {
     background: none repeat scroll 0 0 #d9d9d9;
     margin: 0;
     padding: 20px 20px 4px;
-    border-bottom: 1px solid #e51837;
+    border-bottom: 2px solid #e51837;
 }
 
 ul.primary li a {
@@ -1805,7 +1805,6 @@ span.username  {
 }
 
 .page-user #region-content .block {
-  background: #e51837;
 }
 
 .page-user .form-item .description {
@@ -1821,7 +1820,9 @@ div.password-confirm {
     color: #d9d9d9;
 }
 
-
+.page-user .tabs.clearfix {
+    margin: 0 10px;
+}
 
 
 
