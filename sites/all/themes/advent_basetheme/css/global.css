@@ -1846,3 +1846,16 @@ a.reg-btn {
 .page-user-reset #region-content {
     background: none repeat scroll 0 0 #e51837;
 }
+
+.page-user-edit #region-content {
+    background: none repeat scroll 0 0 #e51837;
+    height: auto;
+}
+
+.page-user-edit #edit-field-first-name,
+.page-user-edit #edit-field-academic-title,
+.page-user-edit #edit-field-country {
+  display:none;
+}
+
+
