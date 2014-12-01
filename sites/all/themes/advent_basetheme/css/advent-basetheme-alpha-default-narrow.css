@@ -212,4 +212,10 @@ input#edit-submit.form-submit {
 .page-user.page-user-edit #region-content,
 .page-user.page-user-edit #region-content .block {
     height: auto;
+    width: 540px;
 }
+
+.page-user.page-user-edit #region-content .form-text.required {
+    width: auto;
+}
+
