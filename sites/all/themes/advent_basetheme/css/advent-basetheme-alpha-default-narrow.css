@@ -209,6 +209,7 @@ input#edit-submit.form-submit {
     height: 232px;
 }
 
-.page-user-edit #region-content {
+.page-user.page-user-edit #region-content,
+.page-user.page-user-edit #region-content .block {
     height: auto;
 }
