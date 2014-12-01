@@ -1843,4 +1843,6 @@ a.reg-btn {
   display: none;
 }
 
-
+.page-user-reset #region-content {
+    background: none repeat scroll 0 0 #e51837;
+}
