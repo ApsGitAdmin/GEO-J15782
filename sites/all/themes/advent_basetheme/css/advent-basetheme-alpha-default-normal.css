@@ -178,6 +178,7 @@ td.col-2.col-last.grid-4 {
 
 .page-user #region-content {
     width: 380px;
+    height: 313px;
 }
 
 .page-user #region-content .block {
@@ -215,6 +216,6 @@ td.col-2.col-last.grid-4 {
 }
 
 .page-user #region-content .block {
-    height: auto;
 }
+
 
