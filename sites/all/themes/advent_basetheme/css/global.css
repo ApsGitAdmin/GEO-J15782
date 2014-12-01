@@ -436,6 +436,7 @@ audio {
 
 
 #region-sidebar-second .block {
+  margin-bottom: 20px;
 }
 #region-sidebar-second.block p {
 	margin-bottom:0;
@@ -1807,8 +1808,6 @@ span.username  {
 .page-user #region-content .block {
 }
 
-.page-user .form-item .description {
-}
 
 .password-strength-title {
     color: #d9d9d9;
@@ -1837,4 +1836,11 @@ a.reg-btn {
 .pass-btn {
   float:right;
 }
+
+/* 1/12/14 */
+
+.page-user .form-item .description {
+  display: none;
+}
+
 

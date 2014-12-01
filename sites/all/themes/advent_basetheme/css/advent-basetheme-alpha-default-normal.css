@@ -172,3 +172,41 @@ td.col-2.col-last.grid-4 {
     padding-bottom: 15px;
     padding-top: 15px;
 }
+
+
+/* 1/12/14 */
+
+.page-user #region-content {
+    width: 380px;
+}
+
+.page-user #region-content .block {
+    height: 252px;
+}
+
+#user-register-form input {
+    width: 70%;
+}
+
+#user-register-form label {
+    width: 30%;
+    float: left;
+    font-size: 12px;
+}
+
+.page-user ul.primary li a {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.page-user input#edit-submit.form-submit {
+    margin: 0;
+    padding: 7px 27px;
+}
+
+.page-user .form-item, .page-user .form-actions {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+

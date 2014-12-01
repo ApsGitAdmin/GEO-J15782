@@ -149,4 +149,34 @@ td.col-2.col-last.grid-4 {
     height: 317px;
 }
 
+.reg-btn {
+    background: none repeat scroll 0 0 #e51837;
+    display: block;
+    margin: 20px 0 0;
+    padding: 14px 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* changes 1/12/14 */
+
+.page-user #region-content {
+    width: 480px;
+    height: 357px;
+}
+
+#user-register-form input {
+    width: 75%;
+}
+
+#user-register-form label {
+    width: 25%;
+    float: left;
+}
+
+.page-user input#edit-submit.form-submit {
+    margin: 10px 0;
+    padding: 15px 35px;
+}
 
