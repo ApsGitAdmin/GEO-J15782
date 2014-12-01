@@ -1860,4 +1860,6 @@ a.reg-btn {
   display:none;
 }
 
-
+div.form-item div.password-suggestions {
+  background:#d9d9d9;
+}
