@@ -1853,8 +1853,10 @@ a.reg-btn {
 }
 
 .page-user-edit #edit-field-first-name,
+.page-user-edit #edit-field-last-name,
 .page-user-edit #edit-field-academic-title,
-.page-user-edit #edit-field-country {
+.page-user-edit #edit-field-country,
+.page-user-edit #edit-timezone {
   display:none;
 }
 
