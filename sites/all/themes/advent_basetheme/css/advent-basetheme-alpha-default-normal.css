@@ -218,4 +218,6 @@ td.col-2.col-last.grid-4 {
 .page-user #region-content .block {
 }
 
-
+.page-user-edit #region-content .block {
+    height: auto;
+}

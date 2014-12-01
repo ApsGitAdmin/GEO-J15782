@@ -184,3 +184,7 @@ td.col-2.col-last.grid-4 {
     height: 214px;
     overflow: hidden;
 }
+
+.page-user-edit #region-content .block {
+    height: auto;
+}
