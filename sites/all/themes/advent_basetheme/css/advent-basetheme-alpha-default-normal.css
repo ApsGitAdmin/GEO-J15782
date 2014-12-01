@@ -215,7 +215,8 @@ td.col-2.col-last.grid-4 {
     overflow: hidden;
 }
 
-.page-user #region-content .block {
+.page-user.page-user-edit #region-content .block {
+    height: auto;
 }
 
 
