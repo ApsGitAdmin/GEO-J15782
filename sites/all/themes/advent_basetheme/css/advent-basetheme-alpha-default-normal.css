@@ -154,7 +154,7 @@ td.col-2.col-last.grid-4 {
 }
 
 #region-sidebar-first {
-    height: 309px;
+    height: 313px;
 }
 
 #block-block-15 p {
@@ -209,4 +209,12 @@ td.col-2.col-last.grid-4 {
     margin-top: 10px;
 }
 
+.title-img {
+    height: 140px;
+    overflow: hidden;
+}
+
+.page-user #region-content .block {
+    height: auto;
+}
 

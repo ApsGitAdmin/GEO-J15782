@@ -200,3 +200,11 @@ input#edit-submit.form-submit {
     margin-top: 8px;
 }
 
+.title-img {
+    height: 95px;
+    overflow: hidden;
+}
+
+.page-user #region-content .block {
+    height: 232px;
+}
