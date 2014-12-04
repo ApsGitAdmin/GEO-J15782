@@ -1863,3 +1863,7 @@ a.reg-btn {
 div.form-item div.password-suggestions {
   background:#d9d9d9;
 }
+
+#edit-field-country-location .form-select {
+    width:100%;
+}

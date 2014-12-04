@@ -185,6 +185,9 @@ td.col-2.col-last.grid-4 {
     overflow: hidden;
 }
 
+#edit-field-country-location .form-select {
+    width: 75%;
+}
 .page-user.page-user-edit #region-content,
 .page-user.page-user-edit #region-content .block {
     height: auto;

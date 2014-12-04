@@ -218,4 +218,6 @@ input#edit-submit.form-submit {
 .page-user.page-user-edit #region-content .form-text.required {
     width: auto;
 }
-
+#edit-field-country-location .form-select {
+    width: 67%;
+}

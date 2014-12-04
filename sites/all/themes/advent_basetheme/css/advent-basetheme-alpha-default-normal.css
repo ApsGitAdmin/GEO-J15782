@@ -221,4 +221,6 @@ td.col-2.col-last.grid-4 {
     width: 720px;
 }
 
-
+#edit-field-country-location .form-select {
+    width: 70%;
+}
