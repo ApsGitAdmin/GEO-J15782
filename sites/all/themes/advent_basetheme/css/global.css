@@ -1868,6 +1868,35 @@ div.form-item div.password-suggestions {
     width:100%;
 }
 
+
+/* POLL EVERYWHERE */
+
+.pe_multiple_choice_poll_10077397.peWidget .peHeader .peTitle {
+    background: none repeat scroll 0 0 #e51837;
+    color: #d9d9d9;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+
 .pe_multiple_choice_poll_10077397.peWidget .peMultipleChoicePoll .peBody {
     background: none repeat scroll 0 0 #e51837;
+    color: #d9d9d9;
+}
+
+.pe_multiple_choice_poll_10077397.peWidget .peMultipleChoicePoll .peOptions a.peOption  {
+    background: none repeat scroll 0 0 #d9d9d9;
+    color: #e51837 !important;
+    margin-top: 5px;
+}
+
+.pe_multiple_choice_poll_10077397.peWidget .peHeader .peStatus,
+.pe_multiple_choice_poll_10077397.peWidget .peMultipleChoicePoll .peOptions a.peOption:hover {
+  background:#555450 !important;
+  color: #d9d9d9 !important;
+}
+
+.pe_multiple_choice_poll_10077397.peWidget .peMultipleChoicePoll .peChart .peChartBar {
+  background: #d9d9d9 !important;
+  color: #555450 !important;
 }
