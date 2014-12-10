@@ -1867,3 +1867,7 @@ div.form-item div.password-suggestions {
 #edit-field-country-location .form-select {
     width:100%;
 }
+
+.pe_multiple_choice_poll_10077397.peWidget .peMultipleChoicePoll .peBody {
+    background: none repeat scroll 0 0 #e51837;
+}
