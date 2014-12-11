@@ -1916,6 +1916,15 @@ div.form-item div.password-suggestions {
   overflow: hidden;
   position: relative;
 }
+#live-cast iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
 
 /* END LIVESTREAM PLATYER */
 
