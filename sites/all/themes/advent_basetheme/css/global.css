@@ -1900,3 +1900,23 @@ div.form-item div.password-suggestions {
   background: #d9d9d9 !important;
   color: #555450 !important;
 }
+
+/* END POLL EVERYWHERE */
+
+
+/* LIVESTREAM PLAYER */
+
+#livestream-player {
+  width:100%;
+}
+#live-cast {
+  height: 0;
+  width: 100%;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* END LIVESTREAM PLATYER */
+
+
