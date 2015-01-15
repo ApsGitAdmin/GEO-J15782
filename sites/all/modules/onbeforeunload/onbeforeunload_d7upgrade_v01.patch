@@ -1,0 +1,78 @@
+diff --git a/onbeforeunload.info b/onbeforeunload.info
+index 2ff98f7..d9e8a07 100644
+--- a/onbeforeunload.info
++++ b/onbeforeunload.info
+@@ -1,4 +1,4 @@
+ name = onBeforeUnload API
+ description = Provides an API to allow other modules use the onBeforeUnload event of the browser window.
+ package = User interface
+-core = 6.x
++core = 7.x
+diff --git a/onbeforeunload.js b/onbeforeunload.js
+index a7bafd4..4eef5f4 100644
+--- a/onbeforeunload.js
++++ b/onbeforeunload.js
+@@ -26,27 +26,32 @@
+  * breaking the implementation of the one who installed its own before us.
+  */
+ 
++(function ($) {
++
+ /**
+  * Drupal behavior for onBeforeUnload API.
+  */
+-Drupal.behaviors.onBeforeUnload = function(context) {
+-  var self = Drupal.onBeforeUnload;
++Drupal.behaviors.onBeforeUnload = {
++  attach: function(context, settings) {
+ 
+-  // Bind our window handler if not already bound.
+-  if (!self.processed) {
+-    // Ensure we do not repeat this process more than once.
+-    self.processed = true;
++    var self = Drupal.onBeforeUnload;
+ 
+-    // Save a reference to the previous onBeforeUnload handler.
+-    if (typeof window.onbeforeunload == 'function') {
+-      self._previousWindowHandler = window.onbeforeunload;
+-    }
++    // Bind our window handler if not already bound.
++    if (!self.processed) {
++      // Ensure we do not repeat this process more than once.
++      self.processed = true;
+ 
+-    // Now, bind our window handler for the onBeforeUnload event.
+-    window.onbeforeunload = self._windowHandler;
++      // Save a reference to the previous onBeforeUnload handler.
++      if (typeof window.onbeforeunload == 'function') {
++        self._previousWindowHandler = window.onbeforeunload;
++      }
+ 
+-    // Finally, enable our event handler.
+-    self.enable();
++      // Now, bind our window handler for the onBeforeUnload event.
++      window.onbeforeunload = self._windowHandler;
++
++      // Finally, enable our event handler.
++      self.enable();
++    }
+   }
+ };
+ 
+@@ -157,3 +162,5 @@ Drupal.onBeforeUnload.disable = function() {
+ Drupal.onBeforeUnload.enable = function() {
+   this._enabled = true;
+ };
++
++})(jQuery);
+\ No newline at end of file
+diff --git a/onbeforeunload_example/onbeforeunload_example.info b/onbeforeunload_example/onbeforeunload_example.info
+index d5a907f..916007d 100644
+--- a/onbeforeunload_example/onbeforeunload_example.info
++++ b/onbeforeunload_example/onbeforeunload_example.info
+@@ -2,4 +2,4 @@ name = onBeforeUnload Example
+ description = Hello world example for the onBeforeUnload API.
+ package = User interface
+ dependencies[] = onbeforeunload
+-core = 6.x
++core = 7.x

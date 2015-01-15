@@ -1,0 +1,7 @@
+name = aps Registration Analytics
+description = "Provides a filter for google analytics reporting"
+package = aps
+core = 7.x
+scripts[] = aps_registration_analytics.js
+dependencies[] = views
+dependencies[] = google_analytics_reports

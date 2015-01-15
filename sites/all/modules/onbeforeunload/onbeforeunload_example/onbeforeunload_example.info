@@ -1,0 +1,5 @@
+name = onBeforeUnload Example
+description = Hello world example for the onBeforeUnload API.
+package = User interface
+dependencies[] = onbeforeunload
+core = 7.x
