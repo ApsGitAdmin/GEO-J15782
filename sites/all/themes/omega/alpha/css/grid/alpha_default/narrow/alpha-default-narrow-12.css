@@ -67,8 +67,11 @@ body {
   width: 160px;
 }
 
-.container-12 .grid-4 {
+/*.container-12 .grid-4 {
   width: 220px;
+}*/
+.container-12 .grid-4 {
+  width: 240px;
 }
 
 .container-12 .grid-5 {

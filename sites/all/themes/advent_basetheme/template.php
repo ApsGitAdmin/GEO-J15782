@@ -20,4 +20,41 @@ function adVENT_Basetheme_preprocess_html(&$vars) {
     }
   }
 }
+
+function adVENT_Basetheme_form_comment_form_alter(&$form, &$form_state, $form_id) {
+
+	$form['comment_body'][LANGUAGE_NONE][0]['#title'] = t('Question');
+	/*dpm($form);*/
+
+	$form['actions']['submit']['#value'] = t('SUBMIT');
+  
+  $label = t('Name');
+  if (isset($form['author']['_author'])) {
+    $form['author']['_author']['#title'] = $label;
+  }
+  else {
+    $form['author']['name']['#title'] = $label;
+  }
+}
+
+
+function adVENT_Basetheme_theme(&$existing, $type, $theme, $path) {
+   $hooks['user_login_block'] = array(
+     'template' => 'templates/user-login-block',
+     'render element' => 'form',
+   );
+   return $hooks;
+ }
+function adVENT_Basetheme_preprocess_user_login_block(&$vars) {
+  $vars['name'] = render($vars['form']['name']);
+  $vars['pass'] = render($vars['form']['pass']);
+  $vars['submit'] = render($vars['form']['actions']['submit']);
+  
+  $vars['form']['links']['#markup'] = '';
+  $vars['rendered'] = drupal_render_children($vars['form']);
+}
+
+
+
+
 ?>
