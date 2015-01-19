@@ -1,0 +1,64 @@
+diff --git a/google_chart_tools.module b/google_chart_tools.module
+index e1ca599..9244ba2 100644
+--- a/google_chart_tools.module
++++ b/google_chart_tools.module
+@@ -43,7 +43,8 @@ function google_chart_tools_load_types() {
+     'AreaChart' => t('Area Chart'),
+     'Gauge' => t('Gauge'),
+     'BarChart' => t('Bar Chart'),
+-    'OrgChart' => t('Organizational Chart')
++    'OrgChart' => t('Organizational Chart'),
++    'GeoChart' => t('Geo Chart')
+   );
+   // allow other projects to alter chart types
+   drupal_alter('gct_types', $types);
+diff --git a/google_chart_tools_views/views/google_chart_tools_views_plugin_style.inc b/google_chart_tools_views/views/google_chart_tools_views_plugin_style.inc
+index 4643680..8404bb3 100644
+--- a/google_chart_tools_views/views/google_chart_tools_views_plugin_style.inc
++++ b/google_chart_tools_views/views/google_chart_tools_views_plugin_style.inc
+@@ -23,6 +23,8 @@ class google_chart_tools_views_plugin_style extends views_plugin_style {
+     $options['curve'] = array('default' => 0);
+     $options['3d'] = array('default' => 0);
+     $options['isstacked'] = array('default' => FALSE);
++    $options['region'] = array('default' => '');
++    $options['displaymode'] = array('default' => '');
+     $options['pointsize'] = array('default' => 0);
+     $options['colors'] = array('default' => '');
+ 
+@@ -97,6 +99,20 @@ class google_chart_tools_views_plugin_style extends views_plugin_style {
+       '#description' => t('Render Bar Chart items on top of each other'),
+       '#default_value' => $this->options['isstacked'],
+     );
++    $form['region'] = array(
++      '#type' => 'textfield',
++      '#title' => t('Region'),
++      '#description' => t('Region code for a Geo Chart. Ex. CA'),
++      '#size' => 10,
++      '#default_value' => $this->options['region'],
++    );
++    $form['displaymode'] = array(
++      '#type' => 'textfield',
++      '#title' => t('Display mode'),
++      '#description' => t('Display mode a Geo Chart. Ex. markers'),
++      '#size' => 10,
++      '#default_value' => $this->options['displaymode'],
++    );
+     $form['pointsize'] = array(
+       '#type' => 'textfield',
+       '#title' => t('Data point size'),
+@@ -191,6 +207,8 @@ class google_chart_tools_views_plugin_style extends views_plugin_style {
+         'curveType' => $this->options['curve'] ? "function" : "none",
+         'is3D' => $this->options['3d'],
+         'isStacked' => $this->options['isstacked'],
++        'region' => $this->options['region'],
++        'displayMode' => $this->options['displaymode'],
+         'pointSize' => $this->options['pointsize'],  
+         'colors' => $this->options['colors'] ? explode(",", str_replace(' ', '', $this->options['colors'])) : NULL,
+         'title' => $this->options['title'],
+@@ -254,4 +272,4 @@ function _google_chart_tools_apply_grouping_conversion(&$header, &$item) {
+   }
+   // set item to the new datapoints array
+   $item = $tmp_item;
+-}
+\ No newline at end of file
++}

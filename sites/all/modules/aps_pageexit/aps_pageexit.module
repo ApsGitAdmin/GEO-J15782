@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file 
+ * Stops page from changing when user is posting.
+ */
+function aps_pageexit_node_view($node, $view_mode, $langcode) {
+	if (drupal_get_path_alias() == 'page-1') {
+		drupal_add_js(drupal_get_path('module', 'aps_pageexit') . '/aps_pageexit.js');
+	}
+}
+
+/**
+ * Implements hook_menu().
+ */
+function aps_pageexit_menu() {
+	$items['aps_pageexit/timeout'] = array(
+	    'title' => 'Execute Rule', 
+	    'page callback' => 'aps_pageexit_timeout', 
+	    'access arguments' => array('access content'), 
+	  );
+  return $items;
+}
+
+function aps_pageexit_timeout() {
+	rules_invoke_event('aps_pageexit_stopwatch');
+}
