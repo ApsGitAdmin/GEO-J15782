@@ -15,6 +15,20 @@ function aps_registration_analytics_menu() {
     'file' => 'aps_registration_analytics.blocks.inc',
     'type' => MENU_CALLBACK,
   );
+  $items['google-analytics-reports/ajax/common-browser'] = array(
+    'title' => 'Browser',
+    'page callback' => 'aps_registration_analytics_common_browser',
+    'access arguments' => array('access google analytics reports'),
+    'file' => 'aps_registration_analytics.blocks.inc',
+    'type' => MENU_CALLBACK,
+  );
+  $items['google-analytics-reports/ajax/geo-location'] = array(
+    'title' => 'Geographic Locations',
+    'page callback' => 'aps_registration_analytics_geo_location',
+    'access arguments' => array('access google analytics reports'),
+    'file' => 'aps_registration_analytics.blocks.inc',
+    'type' => MENU_CALLBACK,
+  );
   return $items;
 }
 
@@ -23,6 +37,8 @@ function aps_registration_analytics_menu() {
  */
 function aps_registration_analytics_block_info() {
   $blocks['aps_analytics']['info'] = t('aps Analytics');
+  $blocks['common_browser']['info'] = t('Browser');
+  $blocks['geo_location']['info'] = t('Geographic Locations');
   return $blocks;
 }
 
@@ -35,7 +51,34 @@ function aps_registration_analytics_block_view($delta = '') {
       $block['subject'] = t('aps traffic');
       $block['content'] = '<div class="aps-registration-analytics"></div>';
       return $block;
+    case 'common_browser':
+      $block['subject'] = t('Browsers Used');
+      $block['content'] = '<div id="aps-common-browser"></div>';
+      return $block;
+    case 'geo_location':
+      $block['subject'] = t('Geographic Locations');
+      $block['content'] = draw_test_chart();
+      return $block;
   }
+}
+
+function draw_test_chart() {
+  $settings['chart']['chartOne'] = array(  
+    'header' => array('Apple', 'Banana', 'Mango'),
+    'rows' => array(array(12, 6, 8)),
+    'columns' => array('Fruit count'),
+    'chartType' => 'PieChart',
+    'containerId' =>  'content',
+    'options' => array( 
+      'forceIFrame' => FALSE, 
+      'title' => 'Fruit count',
+      'width' => 800,
+      'height' => 400  
+    )   
+  );
+  
+//Draw it.
+  return draw_chart($settings); 
 }
 
 /**
@@ -44,6 +87,14 @@ function aps_registration_analytics_block_view($delta = '') {
 function aps_registration_analytics_theme() {
   return array(
     'aps_registration_analytics_aps_analytics' => array(
+      'variables' => array('report' => NULL),
+      'file' => 'aps_registration_analytics.theme.inc',
+    ),
+    'aps_registration_analytics_common_browser' => array(
+      'variables' => array('report' => NULL),
+      'file' => 'aps_registration_analytics.theme.inc',
+    ),
+    'aps_registration_analytics_geo_location' => array(
       'variables' => array('report' => NULL),
       'file' => 'aps_registration_analytics.theme.inc',
     ),

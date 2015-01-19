@@ -12,6 +12,20 @@ function aps_registration_analytics_ajax() {
   return drupal_json_output(array('content' => aps_registration_analytics_build($path)));
 }
 
+/**
+ * Page callback for google-analytics-reports/ajax/common-browser.
+ */
+function aps_registration_analytics_common_browser() {
+  return drupal_json_output(array('content' => aps_common_browser_build()));
+}
+
+/**
+ * Page callback for google-analytics-reports/ajax/geo-location.
+ */
+function aps_registration_analytics_geo_location() {
+  return drupal_json_output(array('content' => aps_geo_location_build()));
+}
+
  /**
  * Generates a block with the current page statistics.
  */
@@ -23,7 +37,6 @@ function aps_registration_analytics_build($path) {
   $filters = array();
 
   global $base_path;
-
   if (strpos($path, $base_path) !== FALSE) {
     $drupal_path = str_replace($base_path, '', $path);
     $path = str_replace($base_path, '/', $path);
@@ -43,10 +56,10 @@ function aps_registration_analytics_build($path) {
   }
 
   $params = array(
-    'metrics' => array('ga:users'),
+    'metrics' => array('ga:timeOnPage'),
     'dimensions' => array('ga:hour,ga:minute,ga:pagePath'),
     'sort_metric' => array('ga:hour,ga:minute'),
-    'filters' => implode(';', $filters),
+    //'filters' => implode(';', $filters),
     'start_date' => isset($start_date) ? $start_date : strtotime('-1 day'),
     'end_date' => isset($end_date) ? $end_date : strtotime('-1 day'),
   );
@@ -57,9 +70,10 @@ function aps_registration_analytics_build($path) {
   }
   $max_visits = 0;
   foreach ($feed->results->rows as $row) {
-    $data[] = $row['users'];
+    $data[] = $row['timeOnPage'];
     $max_visits = max($row['users'], $max_visits);
   }
+  /*
   $chart = array(
     '#title' => '',
     '#chart_id' => 'users_event_live',
@@ -83,4 +97,95 @@ function aps_registration_analytics_build($path) {
   $report['chart'] = l(theme('chart', array('chart' => $chart)), 'admin/reports/google-analytics/detail', array('query' => array('path' => $path), 'html' => TRUE));
   $report['views'] = t('@views viewer(s) for this time period', array('@views' => number_format($feed->results->totalsForAllResults['users'])));
   return theme('aps_registration_analytics_aps_analytics', $report);
+  */
+}
+
+/**
+ * Generates a block with the most common Browsers.
+ */
+function aps_common_browser_build() {
+  if (!variable_get('google_analytics_reports_oauth_token', FALSE)) {
+    return '<p>' . t('You must <a href="!url">authorize</a> Drupal to use your Analytics account before you can view reports.', array('!url' => url('admin/config/system/google-analytics-reports'))) . '</p>';
+  }
+
+  $params = array(
+    'metrics' => array('ga:users'),
+    'dimensions' => array('ga:browser'),
+    'sort_metric' => array(),
+    'filters' => '',
+    'start_date' => date('Y-m-d', strtotime('1 Jan 2015')),
+    'end_date' => date('Y-m-d', strtotime('today')),
+  );
+
+  $feed = google_analytics_api_report_data($params);
+  if ($feed->error) {
+    return '<p>' . _google_analytics_reports_error_message() . '</p>';
+  }
+  foreach ($feed->results->rows as $row) {
+    $data[] = $row['users'];
+    $labels[] = $row['browser'];
+  }
+
+  $graph = array(
+    '#title' => '',
+    '#chart_id' => 'common_browser',
+    '#data' => $data,
+    '#type' => CHART_TYPE_PIE,
+    '#legend' => $labels,
+    '#legend_position' => CHART_LEGEND_RIGHT,
+  );
+
+  $tracking['chart']['tracking_chart'] = array(
+    'header' => $labels,
+    'rows' => array($data),
+    'columns' => array('Slide Trends'),
+    'chartType' => 'PieChart',
+    'containerId' => 'aps-common-browser',
+    'options' => array(
+      'forceIFrame' => FALSE,
+      'width' => 660,
+      'height' => 300,
+      ),
+    );
+
+  dpm(draw_chart($tracking));
+
+  //return draw_chart($tracking); 
+}
+
+/**
+ * Generates a block of the Geographic locations.
+ */
+function aps_geo_location_build() {
+  if (!variable_get('google_analytics_reports_oauth_token', FALSE)) {
+    return '<p>' . t('You must <a href="!url">authorize</a> Drupal to use your Analytics account before you can view reports.', array('!url' => url('admin/config/system/google-analytics-reports'))) . '</p>';
+  }
+
+  $params = array(
+    'metrics' => array('ga:users'),
+    'dimensions' => array('ga:country'),
+    'sort_metric' => array(),
+    'filters' => '',
+    'start_date' => date('Y-m-d', strtotime('1 Jan 2015')),
+    'end_date' => date('Y-m-d', strtotime('today')),
+  );
+
+  $feed = google_analytics_api_report_data($params);
+  if ($feed->error) {
+    return '<p>' . _google_analytics_reports_error_message() . '</p>';
+  }
+  foreach ($feed->results->rows as $row) {
+    $data[] = $row['users'];
+    $labels[] = $row['country'];
+  }
+
+  $map = array(
+    '#title' => '',
+    '#chart_id' => 'geo_location',
+    '#data' => $data,
+    '#type' => CHART_TYPE_MAP,
+  );
+
+  $report['map'] = theme('chart', array('chart' => $map));
+  return theme('aps_registration_analytics_geo_location', $report);
 }
