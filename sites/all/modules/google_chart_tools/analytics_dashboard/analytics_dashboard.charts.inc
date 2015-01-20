@@ -194,6 +194,9 @@ function analytics_dashboard_charts() {
     $columns = array('Content by Tags');
     $rows = isset($terms) ? array($terms) : array();
 
+    dpm($header);
+    dpm($rows);
+
     $settings = array();
     $settings['chart']['chartTag'] = array(
       'header' => $header,

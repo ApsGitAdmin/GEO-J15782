@@ -1,3 +1,4 @@
 name = aps PageExit
 description = Runs command when leaving page.
 core = 7.x
+package = aps

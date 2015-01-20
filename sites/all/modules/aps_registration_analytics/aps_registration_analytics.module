@@ -5,38 +5,9 @@
  */
 
 /**
- * Implementation of hook_menu().
- */
-function aps_registration_analytics_menu() {
-  $items['google-analytics-reports/ajax/aps-analytics'] = array(
-    'title' => 'aps traffic',
-    'page callback' => 'aps_registration_analytics_ajax',
-    'access arguments' => array('access google analytics reports'),
-    'file' => 'aps_registration_analytics.blocks.inc',
-    'type' => MENU_CALLBACK,
-  );
-  $items['google-analytics-reports/ajax/common-browser'] = array(
-    'title' => 'Browser',
-    'page callback' => 'aps_registration_analytics_common_browser',
-    'access arguments' => array('access google analytics reports'),
-    'file' => 'aps_registration_analytics.blocks.inc',
-    'type' => MENU_CALLBACK,
-  );
-  $items['google-analytics-reports/ajax/geo-location'] = array(
-    'title' => 'Geographic Locations',
-    'page callback' => 'aps_registration_analytics_geo_location',
-    'access arguments' => array('access google analytics reports'),
-    'file' => 'aps_registration_analytics.blocks.inc',
-    'type' => MENU_CALLBACK,
-  );
-  return $items;
-}
-
-/**
  * Implements hook_block_info().
  */
 function aps_registration_analytics_block_info() {
-  $blocks['aps_analytics']['info'] = t('aps Analytics');
   $blocks['common_browser']['info'] = t('Browser');
   $blocks['geo_location']['info'] = t('Geographic Locations');
   return $blocks;
@@ -47,58 +18,138 @@ function aps_registration_analytics_block_info() {
  */
 function aps_registration_analytics_block_view($delta = '') {
   switch ($delta) {
-    case 'aps_analytics':
-      $block['subject'] = t('aps traffic');
-      $block['content'] = '<div class="aps-registration-analytics"></div>';
-      return $block;
     case 'common_browser':
       $block['subject'] = t('Browsers Used');
-      $block['content'] = '<div id="aps-common-browser"></div>';
+      $block['content'] = aps_common_browser_build();
       return $block;
     case 'geo_location':
       $block['subject'] = t('Geographic Locations');
-      $block['content'] = draw_test_chart();
+      $block['content'] = aps_geo_location_build();
       return $block;
   }
 }
 
-function draw_test_chart() {
-  $settings['chart']['chartOne'] = array(  
-    'header' => array('Apple', 'Banana', 'Mango'),
-    'rows' => array(array(12, 6, 8)),
-    'columns' => array('Fruit count'),
-    'chartType' => 'PieChart',
-    'containerId' =>  'content',
-    'options' => array( 
-      'forceIFrame' => FALSE, 
-      'title' => 'Fruit count',
-      'width' => 800,
-      'height' => 400  
-    )   
+/**
+ * Generates a block with the most common Browsers.
+ */
+function aps_common_browser_build() {
+  if (!variable_get('google_analytics_reports_oauth_token', FALSE)) {
+    return '<p>' . t('You must <a href="!url">authorize</a> Drupal to use your Analytics account before you can view reports.', array('!url' => url('admin/config/system/google-analytics-reports'))) . '</p>';
+  }
+
+  $params = array(
+    'metrics' => array('ga:users'),
+    'dimensions' => array('ga:browser'),
+    'sort_metric' => array(),
+    'filters' => '',
+    'start_date' => date('Y-m-d', strtotime('1 Jan 2015')),
+    'end_date' => date('Y-m-d', strtotime('today')),
   );
-  
-//Draw it.
-  return draw_chart($settings); 
+
+  $feed = google_analytics_api_report_data($params);
+  if ($feed->error) {
+    return '<p>' . _google_analytics_reports_error_message() . '</p>';
+  }
+  foreach ($feed->results->rows as $row) {
+    $rows[] = $row['users'];
+    $header[] = $row['browser'];
+  }
+
+  $settings['chart']['browsers'] = array(  
+    'header' => $header,
+    'rows' => array($rows),
+    'columns' => array("Usage"),
+    'chartType' => 'PieChart',
+    'containerId' =>  'aps-common-browser',
+    'options' => array( // Optionals.
+      'curveType' => "function",
+      'is3D' => TRUE,
+      'forceIFrame' => FALSE,
+      'width' => 400,
+      'height' => 220,
+      'backgroundColor' => 'transparent'
+    ),
+  );
+
+  draw_chart($settings);
+
+  return '<div id="aps-common-browser"></div>';
 }
 
 /**
- * Implements hook_theme().
+ * Generates a block of the Geographic locations.
  */
-function aps_registration_analytics_theme() {
-  return array(
-    'aps_registration_analytics_aps_analytics' => array(
-      'variables' => array('report' => NULL),
-      'file' => 'aps_registration_analytics.theme.inc',
-    ),
-    'aps_registration_analytics_common_browser' => array(
-      'variables' => array('report' => NULL),
-      'file' => 'aps_registration_analytics.theme.inc',
-    ),
-    'aps_registration_analytics_geo_location' => array(
-      'variables' => array('report' => NULL),
-      'file' => 'aps_registration_analytics.theme.inc',
-    ),
+function aps_geo_location_build() {
+  if (!variable_get('google_analytics_reports_oauth_token', FALSE)) {
+    return '<p>' . t('You must <a href="!url">authorize</a> Drupal to use your Analytics account before you can view reports.', array('!url' => url('admin/config/system/google-analytics-reports'))) . '</p>';
+  }
+
+  $params = array(
+    'metrics' => array('ga:users'),
+    'dimensions' => array('ga:country'),
+    'sort_metric' => array(),
+    'filters' => '',
+    'start_date' => date('Y-m-d', strtotime('1 Jan 2015')),
+    'end_date' => date('Y-m-d', strtotime('today')),
   );
+
+  $feed = google_analytics_api_report_data($params);
+  if ($feed->error) {
+    return '<p>' . _google_analytics_reports_error_message() . '</p>';
+  }
+  foreach ($feed->results->rows as $row) {
+    $rows[] = $row['users'];
+    $header[] = $row['country'];
+  }
+
+  $settings['chart']['location'] = array(  
+      'header' => $header,
+      'rows' => array($rows),
+      'columns' => array("Viewers"),
+      'chartType' => 'GeoChart',
+      'containerId' =>  'aps-geo-location',
+      'options' => array( 
+        'forceIFrame' => FALSE, 
+        'width' => 400,
+        'height' => 280,
+      )   
+    );
+
+  draw_chart($settings);
+  
+  return '<div id="aps-geo-location"></div>';
+}
+
+/**
+ * Preprocess function for views-view.tpl.php.
+ */
+function aps_registration_analytics_preprocess_views_view(&$variables) {
+  if ($variables['view']->name === 'container_view') {
+    $client_graph = active_watcher_build_graph();
+  }
+}
+
+/**
+ * Draws graph in view block
+ */
+function active_watcher_build_graph(){
+
+
+  $tracking['chart']['viewers'] = array(
+    'header' => $header,
+    'rows' => array($rows),
+    'chartType' => 'SteppedAreaChart',
+    'containerId' => 'content',
+    'options' => array(
+      'forceIFrame' => FALSE,
+      'width' => 660,
+      'height' => 300,
+      'colors' => $colour_array,
+      'legend' => 'none',
+      ),
+    );
+
+  return draw_chart($tracking); 
 }
 
 /*
