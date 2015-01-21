@@ -65,7 +65,7 @@ function aps_common_browser_build() {
       'curveType' => "function",
       'is3D' => TRUE,
       'forceIFrame' => FALSE,
-      'width' => 400,
+      'width' => 420,
       'height' => 220,
       'backgroundColor' => 'transparent'
     ),
@@ -124,32 +124,75 @@ function aps_geo_location_build() {
  * Preprocess function for views-view.tpl.php.
  */
 function aps_registration_analytics_preprocess_views_view(&$variables) {
-  if ($variables['view']->name === 'container_view') {
-    $client_graph = active_watcher_build_graph();
+  if ($variables['view']->name === 'tracking' && $variables['view']->current_display == 'graph_tracking') {
+    active_watcher_build_graph($variables['view']->result);
+    $variables['rows'] = '<div id="aps-active-watcher"></div>';
   }
 }
 
 /**
  * Draws graph in view block
  */
-function active_watcher_build_graph(){
+function active_watcher_build_graph($result){
+  $now = time();
+  $upper = ($now - strtotime("midnight", $now));
 
+  $opening = ($node = node_load(3)) ? $node->field_event_start_date[LANGUAGE_NONE][0]['value'] : 0;
+  $lower = ($opening != 0) ? (strtotime($opening . "- 30 minutes") - strtotime("midnight", $now)) : 0;
 
-  $tracking['chart']['viewers'] = array(
+  $header = hoursRange($lower, $upper, 60 * 5);
+
+  $time_rows = array_fill_keys($header, 0);
+  $keys = array_keys($time_rows);
+  $rows = array_fill(0, count($time_rows), 0);
+  foreach ($result as $record) {
+    $start_time = strtotime($record->field_field_start_watching[0]['raw']['value']);
+    $end_time = !empty($record->field_field_end_watching) ? strtotime($record->field_field_end_watching[0]['raw']['value']) : NULL;
+    for ($i=0; $i < count($time_rows); $i++) { 
+      $row_time = strtotime($keys[$i]);
+      if ($start_time < $row_time) {
+        $rows[$i]++;
+      }
+      if (!empty($end_time) && ($end_time < $row_time)) {
+        $rows[$i]--;
+      }
+    }
+  }
+
+  $settings['chart']['viewers'] = array(
     'header' => $header,
     'rows' => array($rows),
+    'columns' => array("Viewers"),
     'chartType' => 'SteppedAreaChart',
-    'containerId' => 'content',
+    'containerId' => 'aps-active-watcher',
     'options' => array(
       'forceIFrame' => FALSE,
-      'width' => 660,
-      'height' => 300,
-      'colors' => $colour_array,
-      'legend' => 'none',
+      'width' => 420,
+      'height' => 220,
+      'backgroundColor' => 'transparent',
       ),
     );
 
-  return draw_chart($tracking); 
+  draw_chart($settings); 
+}
+
+/**
+ * Creates a range of times in a specific formatting
+ */
+function hoursRange($lower = 0,$upper = 86400,$step = 3600,$format = '') {
+    $times = array();
+    if (empty($format)) {
+      $format = 'g:i a';
+    }
+
+    foreach (range($lower, $upper, $step) as $increment) {
+        $increment = gmdate('H:i', $increment);
+        list($hour, $minutes) = explode(':', $increment);
+        $date = new DateTime( $hour . ':' . $minutes);
+        $times[] = $date->format($format);
+    }
+
+    return $times;
 }
 
 /*

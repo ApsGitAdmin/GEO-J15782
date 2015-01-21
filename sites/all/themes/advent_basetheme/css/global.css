@@ -1929,19 +1929,20 @@ div.form-item div.password-suggestions {
 /* END LIVESTREAM PLATYER */
 
 /* TRACKING PAGE */
-.view-tracking .view-header .view-content {
+.view-tracking .view-header > div,
+.view-tracking .view-header > section {
   background-color: #d9d9d9;
 }
 
-.view-tracking .view-header > div {
-  margin-bottom: 10px;
+.view-tracking .view-header .tracking {
+  padding: 0;
 }
 
 .view-tracking .view-header .left {
   float: left;
   display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .view-tracking .view-header .right {
@@ -1954,13 +1955,27 @@ div.form-item div.password-suggestions {
 }
 
 .view-tracking .view-header .quarter {
-  width: 210px;
+  width: 200px;
+}
+
+.view-tracking .view-header h2.block-title {
+  font-size: 18px;
+  line-height: 25px;
+  margin: 5px;
+}
+
+.view-tracking #aps-geo-location {
+  padding: 10px;
 }
 
 .view-tracking .view-header .view-display-id-online .view-content,
 .view-tracking .view-header .view-display-id-webcast .view-content {
   font-size: 65pt;
   line-height: 80pt;
+}
+
+.view-tracking .view-header .view-display-id-views .view-content ol {
+  margin-bottom: 10px;
 }
 
 .view-tracking .view-header .view-display-id-views .view-content li {
