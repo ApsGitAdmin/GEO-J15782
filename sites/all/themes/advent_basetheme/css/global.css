@@ -1947,7 +1947,8 @@ div.form-item div.password-suggestions {
 
 .view-tracking .view-header .right {
   margin-left: 440px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  display: table;
 }
 
 .view-tracking .view-header .half {
@@ -1972,6 +1973,11 @@ div.form-item div.password-suggestions {
 .view-tracking .view-header .view-display-id-webcast .view-content {
   font-size: 65pt;
   line-height: 80pt;
+}
+
+.view-tracking .view-header .view-display-id-online .view-content .field-content,
+.view-tracking .view-header .view-display-id-webcast .view-content .field-content {
+  margin: 0 10px;
 }
 
 .view-tracking .view-header .view-display-id-views .view-content ol {
