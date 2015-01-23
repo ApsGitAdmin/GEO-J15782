@@ -145,20 +145,29 @@ function active_watcher_build_graph($result){
   $time_rows = array_fill_keys($header, 0);
   $keys = array_keys($time_rows);
   $rows = array_fill(0, count($time_rows), 0);
-  foreach ($result as $record) {
-    $start_time = strtotime($record->field_field_start_watching[0]['raw']['value']);
-    $end_time = !empty($record->field_field_end_watching) ? strtotime($record->field_field_end_watching[0]['raw']['value']) : NULL;
-    for ($i=0; $i < count($time_rows); $i++) { 
-      $row_time = strtotime($keys[$i]);
-      if ($start_time < $row_time) {
-        $rows[$i]++;
-      }
-      if (!empty($end_time) && ($end_time < $row_time)) {
-        $rows[$i]--;
+
+  // Check the data hasn't started in a negative value
+  if ($lower < $upper && $upper < 86400 && $lower < 86400) {
+    // Loop through each result from the view
+    foreach ($result as $record) {
+      // Loop through each value within each result
+      for ($i=0; $i < count($record->field_field_start_watching) ; $i++) { 
+        // Fetch the start/end time of the entry
+        $start_time = strtotime($record->field_field_start_watching[$i]['raw']['value']);
+        $end_time = !empty($record->field_field_end_watching) ? strtotime($record->field_field_end_watching[$i]['raw']['value']) : NULL;
+        for ($j=0; $j < count($time_rows); $j++) { 
+          $row_time = strtotime($keys[$j]);
+          if ($start_time < $row_time) {
+            $rows[$j]++;
+          }
+          if (!empty($end_time) && ($end_time < $row_time)) {
+            $rows[$j]--;
+          }
+        }
       }
     }
   }
-
+    
   $settings['chart']['viewers'] = array(
     'header' => $header,
     'rows' => array($rows),
