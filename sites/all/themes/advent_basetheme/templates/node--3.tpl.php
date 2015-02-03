@@ -29,7 +29,7 @@
     
     <?php print render($content['comments']['comment_form']); ?>
 
-    <iframe src="https://www.polleverywhere.com/alexhamps810" frameborder="0" width="100%" height="600"></iframe>
+    <script src="http://www.polleverywhere.com/polls/9oFk1FyiMNl8YzM/chart_widget.js?height=250&results_count_format=percent&width=300"></script>
 
   </div>
 </article>
