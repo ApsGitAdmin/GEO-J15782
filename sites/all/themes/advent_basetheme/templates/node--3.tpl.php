@@ -29,7 +29,7 @@
     
     <?php print render($content['comments']['comment_form']); ?>
 
-    <script src="http://www.polleverywhere.com/polls/9oFk1FyiMNl8YzM/chart_widget.js?height=250&results_count_format=percent&width=300"></script>
+    <script src="http://www.polleverywhere.com/multiple_choice_polls/9oFk1FyiMNl8YzM/web.js?height=250&results_count_format=percent&width=300"></script>
 
   </div>
 </article>
