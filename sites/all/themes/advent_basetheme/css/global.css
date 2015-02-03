@@ -1998,6 +1998,9 @@ article#node-webform-229 input#edit-next.form-submit {
   color:#e51837;
 }
 
+article#node-webform-229 input#edit-submit.form-submit {
+  margin:0;
+}
 
 
 
