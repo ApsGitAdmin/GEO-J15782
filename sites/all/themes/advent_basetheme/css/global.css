@@ -1991,3 +1991,15 @@ div.form-item div.password-suggestions {
   line-height: 16pt;
   list-style: decimal;
 }
+
+article#node-webform-229 input#edit-previous.form-submit,
+article#node-webform-229 input#edit-next.form-submit {
+  background:#d9d9d9;
+  color:#e51837;
+}
+
+
+
+
+
+
