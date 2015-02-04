@@ -2038,6 +2038,9 @@ form#webform-client-form-229 .webform-component-webform_grid label {
     background: none repeat scroll 0 0 #e51837;
 }
 
+.responsive-menus.responsified .responsive-menus-simple {
+  box-shadow:none;
+}
 
 
 
