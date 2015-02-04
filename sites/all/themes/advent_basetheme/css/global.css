@@ -2011,8 +2011,32 @@ form#webform-client-form-229 .webform-component-webform_grid label {
 }
 
 
+/* responsive menu */
 
+.responsive-menus.responsified span.toggler {
+    background: none repeat scroll 0 0 #e51837;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 1.35em;
+    outline: medium none;
+    padding: 10px;
+    text-align: center;
+}
 
+.responsive-menus.responsified .responsive-menus-simple li a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    display: block;
+    margin: 0;
+    padding: 1em 5%;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: none repeat scroll 0 0 #e51837;
+}
 
 
 
