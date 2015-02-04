@@ -1930,67 +1930,6 @@ div.form-item div.password-suggestions {
 
 /* END LIVESTREAM PLATYER */
 
-/* TRACKING PAGE */
-.view-tracking .view-header > div,
-.view-tracking .view-header > section {
-  background-color: #d9d9d9;
-}
-
-.view-tracking .view-header .tracking {
-  padding: 0;
-}
-
-.view-tracking .view-header .left {
-  float: left;
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-.view-tracking .view-header .right {
-  margin-left: 440px;
-  margin-bottom: 20px;
-  display: table;
-}
-
-.view-tracking .view-header .half {
-  width: 420px;
-}
-
-.view-tracking .view-header .quarter {
-  width: 200px;
-}
-
-.view-tracking .view-header h2.block-title {
-  font-size: 18px;
-  line-height: 25px;
-  margin: 5px;
-}
-
-.view-tracking #aps-geo-location {
-  padding: 10px;
-}
-
-.view-tracking .view-header .view-display-id-online .view-content,
-.view-tracking .view-header .view-display-id-webcast .view-content {
-  font-size: 65pt;
-  line-height: 80pt;
-}
-
-.view-tracking .view-header .view-display-id-online .view-content .field-content,
-.view-tracking .view-header .view-display-id-webcast .view-content .field-content {
-  margin: 0 10px;
-}
-
-.view-tracking .view-header .view-display-id-views .view-content ol {
-  margin-bottom: 10px;
-}
-
-.view-tracking .view-header .view-display-id-views .view-content li {
-  font-size: 10pt;
-  line-height: 16pt;
-  list-style: decimal;
-}
 
 article#node-webform-229 input#edit-previous.form-submit,
 article#node-webform-229 input#edit-next.form-submit {
